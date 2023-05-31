@@ -1,6 +1,7 @@
 import { Event } from '../types'
 import ready from './ready'
 import interactionCreate from './interactionCreate'
+import joinMessage from "./joinMessage";
 
 /*
     * events is an array of all the events
@@ -8,7 +9,8 @@ import interactionCreate from './interactionCreate'
  */
 const events: Event<any>[] = [
     ready,
-    interactionCreate
+    interactionCreate,
+    joinMessage
 ]
 
 export default events
