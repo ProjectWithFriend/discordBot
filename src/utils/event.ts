@@ -18,6 +18,8 @@ export function registerEvents(client: Client, events: Event<any>[]) : void{
         client.on(event.id, async (...args) =>{
             const props = {
                 client,
+                //implementing LogFunction for each event
+                //because we only define it to be type of LogFunction in src\utils\event.ts
                 log: (...args: any[]) => console.log(`[${event.id}]`, ...args)
             }
             try{
