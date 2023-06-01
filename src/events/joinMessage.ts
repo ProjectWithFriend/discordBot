@@ -1,6 +1,5 @@
-import { EmbedBuilder } from 'discord.js'
+import {EmbedBuilder} from 'discord.js'
 import {event, randomColor4Chat} from "../utils";
-import keys from "../keys";
 
 
 export default event('guildMemberAdd', async (
@@ -9,9 +8,7 @@ export default event('guildMemberAdd', async (
         log
     },
     guildMember
-) =>{
-    const channel = await client.channels.cache.get(keys.JOIN_MSG_CHANNEL_ID)
-    if(!channel) return log('Channel not found')
+) => {
     const member = guildMember.user
     const embed = {
         title: `Welcome to the server, ${member.toString()}`,
@@ -20,14 +17,16 @@ export default event('guildMemberAdd', async (
             url: member.displayAvatarURL()
         },
         footer: {
-            text: `Member #${guildMember.guild.memberCount}`,
+            text: `Member #${guildMember.guild.memberCount} \n
+             Click the button below to verify yourself and gain the role.
+            `,
         },
         color: randomColor4Chat(),
     }
     const embedBuilder = new EmbedBuilder(embed)
 
-    //send the embed to the channel
-    if(!channel.isTextBased()) return log('Channel is not text based')
-    await channel.send({embeds: [embedBuilder]})
+
+    //send the welcome message to the user with verify button
+    await guildMember.send({embeds: [embedBuilder]})
     log(`Sent welcome message to ${member.tag}`)
 })
