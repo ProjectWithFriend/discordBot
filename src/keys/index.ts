@@ -4,7 +4,7 @@ const keys : Keys ={
     clientToken : process.env.CLIENT_TOKEN ?? 'nil',
     GuildId: process.env.GUILD_ID ?? 'nil',
     MONGO_URI: process.env.MONGO_URI ?? 'nil',
-    JOIN_MSG_CHANNEL_ID: process.env.JOIN_MSG_CHANNEL_ID ?? 'nil'
+    VERIFY_ROLE_ID: process.env.VERIFY_ROLE_ID ?? 'nil'
 }
 
 if (Object.values(keys).includes('nil')) {
