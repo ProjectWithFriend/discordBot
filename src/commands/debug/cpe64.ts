@@ -14,7 +14,7 @@ const meta = new SlashCommandBuilder()
             .setRequired(true)
     )
 
-export default command(meta, async ({interaction}) => {
+export default command(meta, async ({interaction, log}) => {
     const StudentID = interaction.options.getString("id");
     const client = new MongoClient(keys.MONGO_URI);
     try {
@@ -45,14 +45,10 @@ export default command(meta, async ({interaction}) => {
                     // iconUrl: "https://i.imgur.com/8EoXZRz.png",
                 });
             await interaction.reply({ embeds: [embed] });
-            //log
-            console.table({
-                command: "cpe64",
-                user: interaction.user.username,
-                "used time": new Date().toLocaleString("th-TH", {
-                    timeZone: "Asia/Bangkok",
-                }),
-            });
+
+            log(`${interaction.user.tag} used cpe64 command at ${new Date().toLocaleString("th-TH", {
+                timeZone: "Asia/Bangkok",
+            })} `)
         }
         client.close();
     } catch (err) {
