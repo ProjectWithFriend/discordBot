@@ -46,10 +46,10 @@ export default command(meta, async ({interaction, log}) => {
                 });
             await interaction.reply({ embeds: [embed] });
 
-            log(`${interaction.user.tag} used cpe64 command at ${new Date().toLocaleString("th-TH", {
-                timeZone: "Asia/Bangkok",
-            })} `)
         }
+        log(`${interaction.user.tag} used cpe64 command at ${new Date().toLocaleString("th-TH", {
+            timeZone: "Asia/Bangkok",
+        })} `)
         client.close();
     } catch (err) {
         console.log(err.stack);
