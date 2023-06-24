@@ -1,6 +1,12 @@
-import {config} from 'dotenv';
-import {resolve} from 'path'
+import { config } from "dotenv";
+import { resolve } from "path";
 
-config({path: resolve(__dirname, '../.env')})
+const env = process.env.NODE_ENV || "development";
 
-import './client'
+if (env === "development") {
+  config({ path: resolve(__dirname, "../.env.dev") });
+} else {
+  config({ path: resolve(__dirname, "../.env") });
+}
+
+import "./client";
