@@ -1,16 +1,13 @@
-import { Event } from '../types'
-import ready from './ready'
-import interactionCreate from './interactionCreate'
+import { Event } from "../types";
+import ready from "./ready";
+import interactionCreate from "./interactionCreate";
 import joinMessage from "./joinMessage";
+import chatGPT from "./chatGPT";
 
 /*
-    * events is an array of all the events
-    * You can see type Event in src\types\events.ts to check what it is
+ * events is an array of all the events
+ * You can see type Event in src\types\events.ts to check what it is
  */
-const events: Event<any>[] = [
-    ready,
-    interactionCreate,
-    joinMessage
-]
+const events: Event<any>[] = [ready, interactionCreate, joinMessage, chatGPT];
 
-export default events
+export default events;

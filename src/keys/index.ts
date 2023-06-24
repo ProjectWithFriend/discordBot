@@ -5,6 +5,8 @@ const keys: Keys = {
   GuildId: process.env.GUILD_ID ?? "nil",
   MONGO_URI: process.env.MONGO_URI ?? "nil",
   VERIFY_ROLE_ID: process.env.VERIFY_ROLE_ID ?? "nil",
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY ?? "nil",
+  OPENAI_ORGANIZATION_ID: process.env.OPENAI_ORGANIZATION_ID ?? "nil",
 };
 
 if (Object.values(keys).includes("nil")) {
